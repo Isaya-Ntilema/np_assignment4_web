@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
 
     sin_size = sizeof(their_addr);
 
-    //    Accepting Connection
+    // Accepting Connection
     connfd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
     if (connfd == -1)
     {
