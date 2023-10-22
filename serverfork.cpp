@@ -110,7 +110,7 @@ void *processRequest(void *newSock)
   }
   else
   {
-    //   printf("file opened successfully\n");
+  
   }
 
   // The requested resource was found and opened. Get the content length of the file
@@ -119,26 +119,22 @@ void *processRequest(void *newSock)
 
   // Send headers and content
   write(s, HTTP_OK_HEAD, strlen(HTTP_OK_HEAD));
-  // printf("SERVER %s", SERVER);
+  
   write(s, SERVER, strlen(SERVER));
 
   // Send content length
   char contentLengthString[40];
-  // sprintf(contentLengthString, "%s %d\n", CONTENT_LEN_BASE, contentLength);
+
   write(s, contentLengthString, strlen(contentLengthString));
-  // printf("ScontentLengthString %s",contentLengthString);
 
   write(s, CONN_CLOSE, strlen(CONN_CLOSE));
-  // printf(" CONN_CLOSE %s", CONN_CLOSE);
 
   write(s, date, strlen(date));
-  // printf(" date %s", date);
 
   // Send the content type
   char contentType[80];
   sprintf(contentType, "%s %s\n\n", CONT_TYPE_BASE, ctype);
   write(s, contentType, strlen(contentType));
-  // printf(" contentType %s", contentType);
 
   // Write each byte of the file to the socket
   int current_char = 0;
@@ -150,8 +146,7 @@ void *processRequest(void *newSock)
   } while (current_char != EOF);
   fclose(fp);
   close(s);
-  // free(&s);
-  // return NULL;
+
 }
 
 // get sockaddr, IPv4 or IPv6:
