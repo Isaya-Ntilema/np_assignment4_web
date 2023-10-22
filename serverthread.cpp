@@ -30,7 +30,6 @@ const char *const HTTP_DATE_RESP_FORMAT = "%a, %d %b %Y %H:%M:%S %Z";
 #define BUFFER_SIZE 1024
 
 
-
 const char *get_file_ext(const char *filename)
 {
    const char *dot = strrchr(filename, '.'); //finds last occurance of .
