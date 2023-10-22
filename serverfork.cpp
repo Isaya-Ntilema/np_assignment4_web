@@ -173,19 +173,19 @@ int main(int argc, char *argv[])
   char s[INET6_ADDRSTRLEN];
   int rv;
 
-  // Check number of argumnets
+  // Checking number of arguments
   if (argc != 2)
   {
     fprintf(stderr, "usage: showip hostname\n");
     return 1;
   }
 
-  // Seperating IP and port
+  // Separating IP and port
   char delim[] = ":";
   char *Desthost = strtok(argv[1], delim);
   char *Destport = strtok(NULL, delim);
 
-  /* Do magic chage string to int*/
+  /* change string to int*/
   int port = atoi(Destport);
   printf("Host %s, and port %d.\n", Desthost, port);
 
@@ -244,12 +244,11 @@ int main(int argc, char *argv[])
 
   memset(sendBuff, '0', sizeof(sendBuff));
 
-  // printf("Entering loop....\r\n");
   while (1)
   {
 
     sin_size = sizeof(their_addr);
-    //    printf("Accepting...\r\n");
+
     //    Accepting Connection
     connfd = accept(sockfd, (struct sockaddr *)&their_addr, &sin_size);
     if (connfd == -1)
@@ -258,12 +257,10 @@ int main(int argc, char *argv[])
       continue;
     }
 
-    // Getting peer ip address
+    // Getting peer IP address
     inet_ntop(their_addr.ss_family,
               get_in_addr((struct sockaddr *)&their_addr),
               s, sizeof s);
-
-    //    printf("server: Connection  from %s\n", s);
 
     if (fork() == 0)
     {
