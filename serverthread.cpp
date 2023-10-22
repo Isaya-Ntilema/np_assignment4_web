@@ -29,7 +29,6 @@ const char *const HTTP_DATE_RESP_FORMAT = "%a, %d %b %Y %H:%M:%S %Z";
 #define DATESTAMP_LENGTH 30
 #define BUFFER_SIZE 1024
 
-
 const char *get_file_ext(const char *filename)
 {
    const char *dot = strrchr(filename, '.'); //finds last occurance of .
@@ -60,13 +59,9 @@ void getDate(char *dateStr)
 void *processRequest(void *newSock)
 {
    
-
-   //if (!newSock) pthread_exit(0);
-   
    int s = *((int *)newSock);
    char buffer[BUFFER_SIZE];
    
-
    // Get the request body from the socket
     memset(buffer, '0', sizeof(buffer));
    if (recv(s, buffer, BUFFER_SIZE - 1, 0) == -1)
@@ -76,7 +71,6 @@ void *processRequest(void *newSock)
       return NULL;
    }
  
-
    char *method = strtok(buffer, " ");
    char *path = strtok(NULL, " ");
    
