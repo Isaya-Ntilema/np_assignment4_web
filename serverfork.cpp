@@ -48,7 +48,6 @@ int get_content_length(FILE *fp)
 void getDate(char *dateStr)
 {
   char buf[DATESTAMP_LENGTH];
-  // memset(&buf, 0, sizeof(buf));
   time_t now = time(0);
   struct tm tm = *(gmtime(&now));
   strftime(buf, sizeof(buf), HTTP_DATE_RESP_FORMAT, &tm);
