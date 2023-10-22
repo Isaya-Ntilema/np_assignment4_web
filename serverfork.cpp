@@ -95,14 +95,6 @@ void *processRequest(void *newSock)
 
   char *ctype = NULL;
 
-  //  // If filename given doesn't have an extension or the content type isn't supported. show error 403
-  //  if (ctype == NULL)
-  //  {
-  //     write(s, HTTP_403, strlen(HTTP_403));
-  //     close(s);
-  //     return (NULL);
-  //  }
-
   // Remove leading slash from path
   path++;
 
