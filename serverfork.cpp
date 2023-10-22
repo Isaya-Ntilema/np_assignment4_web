@@ -57,13 +57,11 @@ void getDate(char *dateStr)
 
 void *processRequest(void *newSock)
 {
-
-  //  printf("processRequest:\n");
-
   int s = *((int *)newSock);
   char buffer[BUFFER_SIZE];
 
   memset(&buffer, 0, sizeof(buffer));
+  
   // Get the request body from the socket
   if (recv(s, buffer, BUFFER_SIZE - 1, 0) == -1)
   {
@@ -82,7 +80,7 @@ void *processRequest(void *newSock)
     if (path[c] == '/')
       count++;
   }
-  // printf("the number of / is %d\n",count);
+  
   if (count > 1)
   {
     printf("Only root directory is accepted!!");
