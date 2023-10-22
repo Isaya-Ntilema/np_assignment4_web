@@ -76,8 +76,6 @@ void *processRequest(void *newSock)
       return NULL;
    }
  
-   // Print the request to the console
-   //printf("The buffer is %s\n", buffer);
 
    char *method = strtok(buffer, " ");
    char *path = strtok(NULL, " ");
