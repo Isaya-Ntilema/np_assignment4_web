@@ -367,7 +367,7 @@ int main(int argc, char **argv)
     // Ignore SIGCHLD to avoid zombie threads
     signal(SIGCHLD, SIG_IGN);
 
-	// Now server is ready to listen and verification
+	// Server is ready to listen and verification
 	if ((listen(sockfd,0)) != 0) 
 	{
 		printf("Only 10 clients can connect with the server, Listen failed / Server Rejected...\n");
