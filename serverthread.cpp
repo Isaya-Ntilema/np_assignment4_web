@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <algorithm> // Include this header for std::count
 #include <unistd.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
