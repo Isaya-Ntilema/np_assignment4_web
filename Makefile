@@ -1,18 +1,16 @@
-CC = gcc
-CC_FLAGS = -w -g
+# Makefile
+
+CXX = g++
+CXXFLAGS = -std=c++11 -pthread
+
 all: serverthread serverfork
 
-serverthread: serverthread.o
-	$(CC) -Wall -o serverthread serverthread.o -lpthread 
+serverthread: serverthread.cpp
+	$(CXX) $(CXXFLAGS) -o serverthread serverthread.cpp
 
-
-serverfork:	serverfork.o
-	$(CC) -Wall -o serverfork serverfork.o
-
-
-# serverthread: serverthread.o 
-# 	$(CXX) -L./ -Wall -o serverthread serverthread.o -lpthread
-
+serverfork: serverfork.cpp
+	$(CXX) $(CXXFLAGS) -o serverfork serverfork.cpp
 
 clean:
-	rm *.o *.a perf_*.txt  tmp.* serverfork serverthread small big
+	rm -f serverthread serverfork
+
