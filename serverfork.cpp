@@ -6,6 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <algorithm> // Include this header for std::count
 
 void handle_client(int client_socket) {
     char buffer[1024];
